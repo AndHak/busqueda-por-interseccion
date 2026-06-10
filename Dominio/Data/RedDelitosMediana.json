@@ -1,0 +1,60 @@
+{
+  "nodos": {
+    "d_h500": { "id": "d_h500", "tipo": "delito", "etiqueta": "Homicidio #500" },
+    "d_r600": { "id": "d_r600", "tipo": "delito", "etiqueta": "Robo #600" },
+    "d_h742": { "id": "d_h742", "tipo": "delito", "etiqueta": "Homicidio #742" },
+    "d_a311": { "id": "d_a311", "tipo": "delito", "etiqueta": "Asalto #311" },
+    "d_r905": { "id": "d_r905", "tipo": "delito", "etiqueta": "Robo #905" },
+
+    "e_cas9":    { "id": "e_cas9",    "tipo": "evidencia", "etiqueta": "Casquillo 9mm" },
+    "e_navaja":  { "id": "e_navaja",  "tipo": "evidencia", "etiqueta": "Navaja N-1" },
+    "e_gorra":   { "id": "e_gorra",   "tipo": "evidencia", "etiqueta": "Gorra G-4" },
+    "e_palanca": { "id": "e_palanca", "tipo": "evidencia", "etiqueta": "Palanca P-2" },
+    "e_huella7": { "id": "e_huella7", "tipo": "evidencia", "etiqueta": "Huella H-7" },
+    "e_fibra3":  { "id": "e_fibra3",  "tipo": "evidencia", "etiqueta": "Fibra F-3" },
+    "e_adn9":    { "id": "e_adn9",    "tipo": "evidencia", "etiqueta": "ADN A-9" },
+    "e_guante5": { "id": "e_guante5", "tipo": "evidencia", "etiqueta": "Guante G-5" },
+    "e_colilla8":{ "id": "e_colilla8","tipo": "evidencia", "etiqueta": "Colilla C-8" },
+    "e_celular2":{ "id": "e_celular2","tipo": "evidencia", "etiqueta": "Celular C-2" },
+    "e_zapato":  { "id": "e_zapato",  "tipo": "evidencia", "etiqueta": "Zapato Z-6" },
+
+    "s_juan":  { "id": "s_juan",  "tipo": "sospechoso", "etiqueta": "Juan Pérez" },
+    "s_flaco": { "id": "s_flaco", "tipo": "sospechoso", "etiqueta": "El Flaco" },
+    "s_tono":  { "id": "s_tono",  "tipo": "sospechoso", "etiqueta": "Toño Ramírez" },
+    "s_maria": { "id": "s_maria", "tipo": "sospechoso", "etiqueta": "María López" },
+    "s_kira":  { "id": "s_kira",  "tipo": "sospechoso", "etiqueta": "Kira Salas" },
+
+    "Persona": { "id": "Persona", "tipo": "clase", "etiqueta": "Persona" }
+  },
+  "arcos": [
+    { "desde": "d_h500", "etiqueta": "evidencia", "hacia": "e_cas9" },
+    { "desde": "d_h500", "etiqueta": "evidencia", "hacia": "e_navaja" },
+    { "desde": "d_h500", "etiqueta": "evidencia", "hacia": "e_gorra" },
+    { "desde": "d_r600", "etiqueta": "evidencia", "hacia": "e_palanca" },
+    { "desde": "d_r600", "etiqueta": "evidencia", "hacia": "e_huella7" },
+    { "desde": "d_h742", "etiqueta": "evidencia", "hacia": "e_fibra3" },
+    { "desde": "d_h742", "etiqueta": "evidencia", "hacia": "e_adn9" },
+    { "desde": "d_a311", "etiqueta": "evidencia", "hacia": "e_guante5" },
+    { "desde": "d_a311", "etiqueta": "evidencia", "hacia": "e_colilla8" },
+    { "desde": "d_r905", "etiqueta": "evidencia", "hacia": "e_celular2" },
+    { "desde": "d_r905", "etiqueta": "evidencia", "hacia": "e_zapato" },
+
+    { "desde": "s_juan",  "etiqueta": "dejó",     "hacia": "e_cas9" },
+    { "desde": "s_juan",  "etiqueta": "dejó",     "hacia": "e_palanca" },
+    { "desde": "s_flaco", "etiqueta": "dejó",     "hacia": "e_navaja" },
+    { "desde": "s_flaco", "etiqueta": "dejó",     "hacia": "e_fibra3" },
+    { "desde": "s_tono",  "etiqueta": "dejó",     "hacia": "e_gorra" },
+    { "desde": "s_tono",  "etiqueta": "dejó",     "hacia": "e_guante5" },
+    { "desde": "s_maria", "etiqueta": "dejó",     "hacia": "e_huella7" },
+    { "desde": "s_maria", "etiqueta": "dejó",     "hacia": "e_colilla8" },
+    { "desde": "s_kira",  "etiqueta": "dejó",     "hacia": "e_adn9" },
+    { "desde": "s_kira",  "etiqueta": "dueño_de", "hacia": "e_celular2" },
+    { "desde": "s_kira",  "etiqueta": "dejó",     "hacia": "e_zapato" },
+
+    { "desde": "s_juan",  "etiqueta": "instancia", "hacia": "Persona" },
+    { "desde": "s_flaco", "etiqueta": "instancia", "hacia": "Persona" },
+    { "desde": "s_tono",  "etiqueta": "instancia", "hacia": "Persona" },
+    { "desde": "s_maria", "etiqueta": "instancia", "hacia": "Persona" },
+    { "desde": "s_kira",  "etiqueta": "instancia", "hacia": "Persona" }
+  ]
+}

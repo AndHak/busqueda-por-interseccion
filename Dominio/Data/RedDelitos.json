@@ -1,0 +1,46 @@
+{
+  "nodos": {
+    "delito_1023": { "id": "delito_1023", "tipo": "delito", "etiqueta": "Robo #1023" },
+    "delito_88":   { "id": "delito_88",   "tipo": "delito", "etiqueta": "Homicidio #88" },
+    "delito_204":  { "id": "delito_204",  "tipo": "delito", "etiqueta": "Robo #204" },
+    "delito_55":   { "id": "delito_55",   "tipo": "delito", "etiqueta": "Hurto #55" },
+
+    "casquillo_9mm": { "id": "casquillo_9mm", "tipo": "evidencia", "etiqueta": "Casquillo 9mm" },
+    "huella_h12":    { "id": "huella_h12",    "tipo": "evidencia", "etiqueta": "Huella H-12" },
+    "placa_abc123":  { "id": "placa_abc123",  "tipo": "evidencia", "etiqueta": "Placa ABC-123" },
+    "fibra_f9":      { "id": "fibra_f9",      "tipo": "evidencia", "etiqueta": "Fibra F-9" },
+    "adn_x7":        { "id": "adn_x7",        "tipo": "evidencia", "etiqueta": "ADN X-7" },
+    "guante_g2":     { "id": "guante_g2",     "tipo": "evidencia", "etiqueta": "Guante G-2" },
+    "colilla_c3":    { "id": "colilla_c3",    "tipo": "evidencia", "etiqueta": "Colilla C-3" },
+    "celular_n5":    { "id": "celular_n5",    "tipo": "evidencia", "etiqueta": "Celular N-5" },
+
+    "juan_perez":  { "id": "juan_perez",  "tipo": "sospechoso", "etiqueta": "Juan Perez alias JP" },
+    "el_flaco":    { "id": "el_flaco",    "tipo": "sospechoso", "etiqueta": "El Flaco" },
+    "Brigith": { "id": "Brigith", "tipo": "sospechoso", "etiqueta": "Alias La Bris" },
+
+    "Persona": { "id": "Persona", "tipo": "clase", "etiqueta": "Persona" }
+  },
+  "arcos": [
+    { "desde": "delito_1023", "etiqueta": "evidencia", "hacia": "casquillo_9mm" },
+    { "desde": "delito_1023", "etiqueta": "evidencia", "hacia": "huella_h12" },
+    { "desde": "delito_88",   "etiqueta": "evidencia", "hacia": "placa_abc123" },
+    { "desde": "delito_88",   "etiqueta": "evidencia", "hacia": "fibra_f9" },
+    { "desde": "delito_204",  "etiqueta": "evidencia", "hacia": "adn_x7" },
+    { "desde": "delito_204",  "etiqueta": "evidencia", "hacia": "guante_g2" },
+    { "desde": "delito_55",   "etiqueta": "evidencia", "hacia": "colilla_c3" },
+    { "desde": "delito_55",   "etiqueta": "evidencia", "hacia": "celular_n5" },
+
+    { "desde": "juan_perez",  "etiqueta": "dejó",     "hacia": "casquillo_9mm" },
+    { "desde": "juan_perez",  "etiqueta": "dejó",     "hacia": "huella_h12" },
+    { "desde": "juan_perez",  "etiqueta": "dueño_de", "hacia": "placa_abc123" },
+    { "desde": "el_flaco",    "etiqueta": "dejó",     "hacia": "fibra_f9" },
+    { "desde": "el_flaco",    "etiqueta": "dejó",     "hacia": "guante_g2" },
+    { "desde": "Brigith", "etiqueta": "dejó",     "hacia": "adn_x7" },
+    { "desde": "Brigith", "etiqueta": "dejó",     "hacia": "colilla_c3" },
+    { "desde": "Brigith", "etiqueta": "dueño_de", "hacia": "celular_n5" },
+
+    { "desde": "juan_perez",  "etiqueta": "instancia", "hacia": "Persona" },
+    { "desde": "el_flaco",    "etiqueta": "instancia", "hacia": "Persona" },
+    { "desde": "Brigith", "etiqueta": "instancia", "hacia": "Persona" }
+  ]
+}

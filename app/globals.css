@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/*
+  Tema "tablero de investigación" (evidence board):
+  fondo casi negro con una rejilla tenue y un halo rojo arriba (el "hilo" del caso).
+*/
+:root {
+  --fondo: #0c0d10;        /* fondo general */
+  --panel: #14161c;        /* paneles / tarjetas */
+  --panel-2: #1c1f27;      /* paneles elevados / hover */
+  --borde: #2a2e38;        /* bordes */
+  --texto: #e9e6dd;        /* texto principal (color papel) */
+  --texto-tenue: #99a0ac;  /* texto secundario */
+  --acento: #e23b3b;       /* rojo: el hilo de la correlación */
+  --acento-fg: #fff6f4;    /* texto sobre el rojo */
+  --ambar: #e8b23a;        /* evidencia */
+  --violeta: #a06cd5;      /* delito */
+  --teal: #4cc9b0;         /* clase */
+}
+
+@theme inline {
+  --color-fondo: var(--fondo);
+  --color-panel: var(--panel);
+  --color-panel-2: var(--panel-2);
+  --color-borde: var(--borde);
+  --color-texto: var(--texto);
+  --color-texto-tenue: var(--texto-tenue);
+  --color-acento: var(--acento);
+  --color-acento-fg: var(--acento-fg);
+  --color-ambar: var(--ambar);
+  --color-violeta: var(--violeta);
+  --color-teal: var(--teal);
+  --color-ring: var(--acento);
+  --font-display: var(--font-special-elite);
+  --font-cuerpo: var(--font-archivo);
+}
+
+body {
+  background-color: var(--fondo);
+  color: var(--texto);
+  font-family: var(--font-archivo), system-ui, sans-serif;
+  background-image:
+    radial-gradient(1100px 520px at 50% -8%, rgba(226, 59, 59, 0.07), transparent 62%),
+    linear-gradient(rgba(255, 255, 255, 0.016) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.016) 1px, transparent 1px);
+  background-size: auto, 34px 34px, 34px 34px;
+}
+
+/* Título con tipografía de máquina de escribir. */
+.fuente-display {
+  font-family: var(--font-special-elite), ui-monospace, monospace;
+}
+
+/* Barra de desplazamiento discreta acorde al tema. */
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb { background: var(--borde); border-radius: 999px; }
+*::-webkit-scrollbar-track { background: transparent; }
