@@ -42,7 +42,15 @@
     "s_ana":    { "id": "s_ana",    "tipo": "sospechoso", "etiqueta": "Ana Torres alias 'La Gata'" },
     "s_miguel": { "id": "s_miguel", "tipo": "sospechoso", "etiqueta": "Miguel Díaz alias 'El Tuerto'" },
 
-    "Persona": { "id": "Persona", "tipo": "clase", "etiqueta": "Persona" }
+    "Persona":  { "id": "Persona",  "tipo": "clase", "etiqueta": "Persona" },
+    "Criminal": { "id": "Criminal", "tipo": "clase", "etiqueta": "Criminal" },
+
+    "Delito":    { "id": "Delito",    "tipo": "clase", "etiqueta": "Delito" },
+    "Homicidio": { "id": "Homicidio", "tipo": "clase", "etiqueta": "Homicidio" },
+    "Robo":      { "id": "Robo",      "tipo": "clase", "etiqueta": "Robo" },
+    "Asalto":    { "id": "Asalto",    "tipo": "clase", "etiqueta": "Asalto" },
+    "Secuestro": { "id": "Secuestro", "tipo": "clase", "etiqueta": "Secuestro" },
+    "Extorsion": { "id": "Extorsion", "tipo": "clase", "etiqueta": "Extorsión" }
   },
   "arcos": [
     { "desde": "d_h500", "etiqueta": "evidencia", "hacia": "e_cas9" },
@@ -89,14 +97,30 @@
     { "desde": "s_miguel", "etiqueta": "dejó",     "hacia": "e_sangre4" },
     { "desde": "s_miguel", "etiqueta": "dejó",     "hacia": "e_cuerda" },
 
-    { "desde": "s_juan",   "etiqueta": "instancia", "hacia": "Persona" },
-    { "desde": "s_flaco",  "etiqueta": "instancia", "hacia": "Persona" },
-    { "desde": "s_tono",   "etiqueta": "instancia", "hacia": "Persona" },
-    { "desde": "s_maria",  "etiqueta": "instancia", "hacia": "Persona" },
-    { "desde": "s_kira",   "etiqueta": "instancia", "hacia": "Persona" },
-    { "desde": "s_carlos", "etiqueta": "instancia", "hacia": "Persona" },
-    { "desde": "s_pedro",  "etiqueta": "instancia", "hacia": "Persona" },
-    { "desde": "s_ana",    "etiqueta": "instancia", "hacia": "Persona" },
-    { "desde": "s_miguel", "etiqueta": "instancia", "hacia": "Persona" }
+    { "desde": "s_juan",   "etiqueta": "instancia", "hacia": "Criminal" },
+    { "desde": "s_flaco",  "etiqueta": "instancia", "hacia": "Criminal" },
+    { "desde": "s_tono",   "etiqueta": "instancia", "hacia": "Criminal" },
+    { "desde": "s_maria",  "etiqueta": "instancia", "hacia": "Criminal" },
+    { "desde": "s_kira",   "etiqueta": "instancia", "hacia": "Criminal" },
+    { "desde": "s_carlos", "etiqueta": "instancia", "hacia": "Criminal" },
+    { "desde": "s_pedro",  "etiqueta": "instancia", "hacia": "Criminal" },
+    { "desde": "s_ana",    "etiqueta": "instancia", "hacia": "Criminal" },
+    { "desde": "s_miguel", "etiqueta": "instancia", "hacia": "Criminal" },
+    { "desde": "Criminal", "etiqueta": "es un", "hacia": "Persona" },
+
+    { "desde": "d_h500", "etiqueta": "instancia", "hacia": "Homicidio" },
+    { "desde": "d_h742", "etiqueta": "instancia", "hacia": "Homicidio" },
+    { "desde": "d_h888", "etiqueta": "instancia", "hacia": "Homicidio" },
+    { "desde": "d_r600", "etiqueta": "instancia", "hacia": "Robo" },
+    { "desde": "d_r905", "etiqueta": "instancia", "hacia": "Robo" },
+    { "desde": "d_r222", "etiqueta": "instancia", "hacia": "Robo" },
+    { "desde": "d_a311", "etiqueta": "instancia", "hacia": "Asalto" },
+    { "desde": "d_s102", "etiqueta": "instancia", "hacia": "Secuestro" },
+    { "desde": "d_e444", "etiqueta": "instancia", "hacia": "Extorsion" },
+    { "desde": "Homicidio", "etiqueta": "es un", "hacia": "Delito" },
+    { "desde": "Robo",      "etiqueta": "es un", "hacia": "Delito" },
+    { "desde": "Asalto",    "etiqueta": "es un", "hacia": "Delito" },
+    { "desde": "Secuestro", "etiqueta": "es un", "hacia": "Delito" },
+    { "desde": "Extorsion", "etiqueta": "es un", "hacia": "Delito" }
   ]
 }

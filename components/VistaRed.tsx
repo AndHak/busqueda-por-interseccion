@@ -5,13 +5,13 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { RedSemantica } from "@/Dominio/Algoritmo/RedSemantica";
 import { Resultado } from "@/Dominio/Algoritmo/Tipos";
-import { calcularPosiciones, maxNodosEnCapa } from "@/lib/Layout";
+import { calcularPosiciones, maxNodosEnCapa, contarCapas } from "@/lib/Layout";
 import { colorPorTipo, colorOrigen } from "@/lib/Colores";
 
 gsap.registerPlugin(useGSAP);
 
 // Lienzo y colores (en hex porque los atributos SVG no aceptan var() de CSS).
-const ALTO = 560;
+const ALTO_MINIMO = 560;
 const RADIO = 24;
 const ACENTO = "#e23b3b";
 const AMBAR = "#e8b23a";
@@ -44,7 +44,9 @@ export function VistaRed({ red, consulta, resultado, paso, totalPasos }: Props) 
   const datos = red.datos;
   // El ancho del lienzo crece con la capa más poblada, para que los nodos no se amontonen.
   const ancho = useMemo(() => Math.max(1120, maxNodosEnCapa(datos) * 120), [datos]);
-  const pos = useMemo(() => calcularPosiciones(datos, ancho, ALTO), [datos, ancho]);
+  // El alto crece con la cantidad de capas (las clases agregan capas arriba y abajo).
+  const alto = useMemo(() => Math.max(ALTO_MINIMO, contarCapas(datos) * 105), [datos]);
+  const pos = useMemo(() => calcularPosiciones(datos, ancho, alto), [datos, ancho, alto]);
 
   // Reproducimos la traza hasta el paso actual para saber qué marcas tiene cada nodo
   // y qué arcos se han "encendido".
@@ -102,7 +104,7 @@ export function VistaRed({ red, consulta, resultado, paso, totalPasos }: Props) 
   return (
     <svg
       ref={contenedor}
-      viewBox={`0 0 ${ancho} ${ALTO}`}
+      viewBox={`0 0 ${ancho} ${alto}`}
       className="h-auto w-full"
       role="img"
       aria-label="Red semántica de evidencias y delitos"

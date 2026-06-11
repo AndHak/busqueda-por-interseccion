@@ -32,6 +32,8 @@ export class BuscadorInterseccion {
     // traza: cada evento de la propagación, para poder animarlo paso a paso.
     const traza: PasoTraza[] = [];
 
+    //  marca = {casquillo: [casquillo_9mm], placa_abc: [placa_abc]}
+
     // 1) SEMBRAR: cada evidencia de la consulta es su propio origen.
     for (let i = 0; i < consulta.length; i++) {
       const evidencia = consulta[i];
@@ -40,12 +42,15 @@ export class BuscadorInterseccion {
       traza.push({ tipo: "siembra", nodo: evidencia, origen: evidencia });
     }
 
+    //
+
     // 2) PROPAGAR: avanzar hacia los predecesores hasta que un nodo junte todas las marcas.
     while (!cola.estaVacia()) {
       const actual = cola.desencolar()!;
       visitados.push(actual.nodo);
 
       const arcos = this.red.predecesores(actual.nodo);
+      
       for (let i = 0; i < arcos.length; i++) {
         const arco = arcos[i];
         const vecino = arco.desde; // quién apunta hacia actual.nodo
@@ -56,8 +61,10 @@ export class BuscadorInterseccion {
 
         // Si el vecino aún no tenía la marca de este origen, se la pasamos.
         if (marca[vecino].indexOf(actual.origen) === -1) {
-          marca[vecino].push(actual.origen);
-          padre[vecino + "|" + actual.origen] = arco;
+          marca[vecino].push(actual.origen); //marca[delito] = [casquilo_9mm]
+          padre[vecino + "|" + actual.origen] = arco; //marca[delito|caquillo] = [casquilo_9mm
+
+          //marca[delito] = [casquilo_9mm]
 
           // 3) DETECTAR INTERSECCIÓN: ¿el vecino ya tiene la marca de TODOS los orígenes?
           if (marca[vecino].length >= totalOrigenes) {

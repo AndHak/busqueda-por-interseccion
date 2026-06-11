@@ -18,7 +18,13 @@
     "el_flaco":    { "id": "el_flaco",    "tipo": "sospechoso", "etiqueta": "El Flaco" },
     "Brigith": { "id": "Brigith", "tipo": "sospechoso", "etiqueta": "Alias La Bris" },
 
-    "Persona": { "id": "Persona", "tipo": "clase", "etiqueta": "Persona" }
+    "Persona":  { "id": "Persona",  "tipo": "clase", "etiqueta": "Persona" },
+    "Criminal": { "id": "Criminal", "tipo": "clase", "etiqueta": "Criminal" },
+
+    "Delito":    { "id": "Delito",    "tipo": "clase", "etiqueta": "Delito" },
+    "Robo":      { "id": "Robo",      "tipo": "clase", "etiqueta": "Robo" },
+    "Homicidio": { "id": "Homicidio", "tipo": "clase", "etiqueta": "Homicidio" },
+    "Hurto":     { "id": "Hurto",     "tipo": "clase", "etiqueta": "Hurto" }
   },
   "arcos": [
     { "desde": "delito_1023", "etiqueta": "evidencia", "hacia": "casquillo_9mm" },
@@ -39,8 +45,17 @@
     { "desde": "Brigith", "etiqueta": "dejó",     "hacia": "colilla_c3" },
     { "desde": "Brigith", "etiqueta": "dueño_de", "hacia": "celular_n5" },
 
-    { "desde": "juan_perez",  "etiqueta": "instancia", "hacia": "Persona" },
-    { "desde": "el_flaco",    "etiqueta": "instancia", "hacia": "Persona" },
-    { "desde": "Brigith", "etiqueta": "instancia", "hacia": "Persona" }
+    { "desde": "juan_perez",  "etiqueta": "instancia", "hacia": "Criminal" },
+    { "desde": "el_flaco",    "etiqueta": "instancia", "hacia": "Criminal" },
+    { "desde": "Brigith", "etiqueta": "instancia", "hacia": "Criminal" },
+    { "desde": "Criminal", "etiqueta": "es un", "hacia": "Persona" },
+
+    { "desde": "delito_1023", "etiqueta": "instancia", "hacia": "Robo" },
+    { "desde": "delito_204",  "etiqueta": "instancia", "hacia": "Robo" },
+    { "desde": "delito_88",   "etiqueta": "instancia", "hacia": "Homicidio" },
+    { "desde": "delito_55",   "etiqueta": "instancia", "hacia": "Hurto" },
+    { "desde": "Robo",      "etiqueta": "es un", "hacia": "Delito" },
+    { "desde": "Homicidio", "etiqueta": "es un", "hacia": "Delito" },
+    { "desde": "Hurto",     "etiqueta": "es un", "hacia": "Delito" }
   ]
 }
